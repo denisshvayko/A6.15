@@ -1,0 +1,36 @@
+.grid-wrapper {
+	display: grid;
+/*	grid-template-columns: repeat(6, 200px);
+	grid-template-rows: repeat(6, 100px);*/
+	grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, auto);
+}
+
+
+
+.grid-item {
+	background-color: orange;
+	min-height: 10vh;
+	margin: 1px 1px 1px 1px;
+	line-height: 10vh;
+}
+
+.miss {
+	background-color: red;
+	color: white;
+	font-size: 24pt;
+	text-align: center;  
+}
+
+.target {
+	background-color: green;
+	color: white;
+	font-size: 24pt;
+	text-align: center;
+	}
+.cont2 {
+	align-items: center;
+}
+.btn1 {
+	background-color: green;
+}
