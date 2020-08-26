@@ -4,6 +4,7 @@ const maxHits = 10;
 let hits = 0;
 let bedHits = -1;
 let firstHitTime = 0;
+let missedCell = null;
 function round() {
   // FIXME: надо бы убрать "target" прежде чем искать новый (сделал)
 
@@ -31,7 +32,12 @@ function endGame() {
 
 function handleClick(event) {
   // FIXME: убирать текст со старых таргетов. Кажется есть .text? (сделал)
-
+  if (missedCell) {
+    missedCell.removeClass('miss');
+    missedCell.text('');
+    missedCell = null;
+  }
+  
   if ($(event.target).hasClass("target")) {
     $(event.target).removeClass("target");
     $(event.target).text("");
@@ -39,10 +45,13 @@ function handleClick(event) {
     round();
   }
   else if($(event.target).hasClass("grid-item")){
-      $(event.target).addClass("miss");
-      $(event.target).text(bedHits);
+      missedCell = $(event.target);
+      missedCell.addClass("miss");
+      missedCell.text(bedHits);
       bedHits = bedHits - 1;
   }
+  // hits = hits + 1;
+  // round();
   // TODO: как-то отмечать если мы промахнулись? См CSS класс .miss (сделал)
 }
 
